@@ -185,3 +185,11 @@ Steel Compass is a reference and decision-support tool. It does not certify lega
 ---
 
 Built solo — architecture, data pipeline, and frontend — as the foundation of a future business. Deeper writeup of the product decisions behind it: [`CASE_STUDY.md`](./CASE_STUDY.md).
+
+## ⭐ Project status
+
+- Steel Compass is an actively developed commercial project.
+
+- The source code is intentionally private while the product evolves through real-world validation with importers.
+
+- Public documentation is provided to explain the product, architecture, and design decisions.
