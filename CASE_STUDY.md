@@ -37,10 +37,10 @@ Steel import compliance in Thailand sits at the intersection of two
 completely separate regulatory systems that nobody has put in one place:
 
 - **DFT trade remedy measures** — Anti-Dumping (AD), Anti-Circumvention
-  (AC), and Safeguard (SG) duties, published by the Department of Foreign
-  Trade, changing over time, sometimes overlapping (a single HS code can
-  be the subject of five different cases at once, active and terminated,
-  spanning a decade).
+  (AC), Safeguard (SG), and Countervailing (CVD) duties, published by 
+  the Department of Foreign Trade, changing over time, sometimes overlapping 
+  (a single HS code can be the subject of five different cases at once, 
+  active and terminated, spanning a decade).
 - **TISI mandatory product standards** — a completely independent
   regulatory system requiring import licenses for specific HS codes,
   administered by the Thai Industrial Standards Institute.
@@ -51,7 +51,7 @@ failure modes I kept hearing about:
 
 1. **Sales commits before checking anything.** A contract gets signed,
    the import team finds out about the shipment with no runway left to
-   investigate AD/AC/SG exposure or licensing before goods are already
+   investigate AD/AC/SG/CVD exposure or licensing before goods are already
    moving.
 2. **An HS code gets checked once, then lost.** Goods get consolidated
    into a shipment with other products, and the wrong code gets declared
@@ -60,7 +60,7 @@ failure modes I kept hearing about:
 3. **TISI gets discovered at customs, not before.** Because it's a
    separate system from DFT, checking trade remedies tells you nothing
    about whether a mandatory import license is required.
-4. **AD/AC/SG exposure gets discovered mid-shipment, not before purchase.**
+4. **AD/AC/SG/CVD exposure gets discovered mid-shipment, not before purchase.**
    The importer has already quoted a selling price with no duty built
    in — then finds out, once the shipment is already moving or arriving,
    that the product is subject to Anti-Dumping, Anti-Circumvention, or
@@ -80,13 +80,13 @@ Before writing any code, the actual data had to be understood, not
 assumed:
 
 - **DFT case data** doesn't come as a clean API. I built a hand-curated
-  master spreadsheet of AD/AC/SG cases, cross-checked against real DFT
+  master spreadsheet of AD/AC/SG/CVD cases, cross-checked against real DFT
   announcements — case status, duty rates, affected countries, HS code
   scope, dates. This was slow, deliberate work, and it stayed the source
   of truth throughout the build rather than something I automated away
   early and trusted blindly.
-- **TISI data** exists as CKAN Open Data plus product-standard XLSX
-  sheets — I built a Python (openpyxl) pipeline to parse this into a
+- **TISI data** exists as CKAN Open Data plus a hand-curated product-standard
+  XLSX sheets — I built a Python (openpyxl) pipeline to parse this into a
   static JSON file, with a SHA-256 hash sidecar so the app can verify at
   runtime that the data hasn't been tampered with between build and
   deploy.

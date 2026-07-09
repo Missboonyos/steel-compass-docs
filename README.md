@@ -86,7 +86,7 @@ In practice, this shows up as four recurring, costly mistakes:
 - **Sales commits to a deal before checking anything.** By the time the import team finds out, there's no time left to investigate exposure before goods are in transit.
 - **An importer checks one HS code, then loses track of it during shipment consolidation** — and declares the wrong code for goods bundled in with others.
 - **Nobody checks TISI requirements until customs asks for a license that doesn't exist yet** — because TISI is a completely separate system from DFT's trade remedies, and checking one doesn't tell you about the other.
-- **AD/AC/SG exposure gets discovered mid-shipment, not before purchase.** The importer has already quoted a selling price with no duty built in — then finds out, once the shipment is already moving or arriving, that the product is subject to Anti-Dumping, Anti-Circumvention, or Safeguard duties. Beyond the unplanned duty and tax, the delay adds warehouse storage charges, holds up delivery to the end customer's production line, and can turn a deal that looked profitable at quote time into a loss.
+- **AD/AC/SG/CVD exposure gets discovered mid-shipment, not before purchase.** The importer has already quoted a selling price with no duty built in — then finds out, once the shipment is already moving or arriving, that the product is subject to Anti-Dumping, Anti-Circumvention, or Safeguard duties. Beyond the unplanned duty and tax, the delay adds warehouse storage charges, holds up delivery to the end customer's production line, and can turn a deal that looked profitable at quote time into a loss.
 
 Steel Compass makes it structurally harder to skip these checks — not with chatbot-style advice, but by surfacing the actual official data clearly, fast, in one place.
 
@@ -94,7 +94,7 @@ Steel Compass makes it structurally harder to skip these checks — not with cha
 
 Built around how an importer actually works through a shipment, not how the codebase is organized:
 
-**1. Search** — Search DFT Anti-Dumping, Anti-Circumvention, and Safeguard cases by HS code or product name (Thai or English), live against Supabase. Every case shows its duty rate, affected countries, status, and a direct link to the official DFT announcement.
+**1. Search** — Search DFT Anti-Dumping, Anti-Circumvention, Safeguard, and Countervailing Duty cases by HS code or product name (Thai or English), live against Supabase. Every case shows its duty rate, affected countries, status, and a direct link to the official DFT announcement.
 
 **2. Check** — Check whether the same product requires a mandatory TISI standard and import license, via a three-state resolver — **MANDATORY / NO_MATCH / REVIEW_NEEDED** — that never collapses genuine data ambiguity into a false "you're clear."
 
